@@ -1,0 +1,61 @@
+<suite name="TestSuite" parallel="tests" thread-count="4" >
+    <test name ="test1">
+        <classes>
+            <class name="test.java.restassuredAPI.TestSuite">
+                <methods>
+                <include name="pageData"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name ="test2">
+        <classes>
+            <class name="test.java.restassuredAPI.TestSuite">
+                <methods>
+                    <include name="compareUserName"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name ="test3">
+        <classes>
+            <class name="test.java.restassuredAPI.TestSuite">
+                <methods>
+                    <include name="notExistUser"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name ="test4">
+        <classes>
+            <class name="test.java.restassuredAPI.TestSuite">
+                <methods>
+                    <include name="createUser"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name ="test5">
+        <classes>
+            <class name="test.java.restassuredAPI.TestSuite">
+                <methods>
+                    <include name="updateUser"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name ="test6">
+        <classes>
+            <class name="test.java.restassuredAPI.TestSuite">
+                <methods>
+                    <include name="deleteUser"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+ </suite>

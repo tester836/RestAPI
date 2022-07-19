@@ -1,4 +1,4 @@
-package restassuredAPI;
+package test.java.restassuredAPI;
 
 import com.google.gson.Gson;
 import io.restassured.RestAssured;
@@ -12,8 +12,7 @@ import java.util.List;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class TestRequests {
-
+public class TestSuite {
     String usersURL = "https://reqres.in/api/users";
     String queryURL = "?page=1";
     int expectedPage = 1;
@@ -39,32 +38,32 @@ public class TestRequests {
         public List<Person> data;
     }
 
-    @Test (description = "Get the values of page, per_page, total, total_pages, users data.")
+    @Test (description = "Get the values of page, per_page, total, total_pages, users data.",
+            groups = {"suite"})
     public void pageData() {
 
-        Gson g = new Gson();
-        Response response = RestAssured.get(usersURL + queryURL);
-        String jsonString = (response.getBody().asString());
+//        Gson g = new Gson();
+//        Response response = RestAssured.get(usersURL + queryURL);
+//        String jsonString = (response.getBody().asString());
+//        int statusCode = response.getStatusCode();
+//        Assert.assertEquals(statusCode, 200);
 
-        int statusCode = response.getStatusCode();
-        Assert.assertEquals(statusCode, 200);
-
-        UsersPage pageValue = g.fromJson(jsonString, UsersPage.class);
-        System.out.println("\nreqres.in/api/users \nPage number is: " + pageValue.page);
-
-        UsersPage usersPerPage = g.fromJson(jsonString, UsersPage.class);
-        System.out.println("Count of users per page: " + usersPerPage.per_page);
-
-        UsersPage usersTotal = g.fromJson(jsonString, UsersPage.class);
-        System.out.println("Total count of users: " + usersTotal.total);
-
-        UsersPage pagesTotal = g.fromJson(jsonString, UsersPage.class);
-        System.out.println("Total count of pages: " + pagesTotal.total_pages + "\n");
-
-        Person person = g.fromJson(jsonString, Person.class);
-        for (Person user : person.data) {
-            System.out.println("id" + user.id + "- Name: " + user.first_name + " " + user.last_name);
-        }
+//        UsersPage pageValue = g.fromJson(jsonString, UsersPage.class);
+//        System.out.println("\nreqres.in/api/users \nPage number is: " + pageValue.page);
+//
+//        UsersPage usersPerPage = g.fromJson(jsonString, UsersPage.class);
+//        System.out.println("Count of users per page: " + usersPerPage.per_page);
+//
+//        UsersPage usersTotal = g.fromJson(jsonString, UsersPage.class);
+//        System.out.println("Total count of users: " + usersTotal.total);
+//
+//        UsersPage pagesTotal = g.fromJson(jsonString, UsersPage.class);
+//        System.out.println("Total count of pages: " + pagesTotal.total_pages + "\n");
+//
+//        Person person = g.fromJson(jsonString, Person.class);
+//        for (Person user : person.data) {
+//            System.out.println("id" + user.id + "- Name: " + user.first_name + " " + user.last_name);
+//        }
 
         given().get(usersURL + queryURL)
         .then().statusCode(200)
@@ -76,8 +75,9 @@ public class TestRequests {
                 .log().body();
     }
 
-    @Test (description = "Get and compare the user data.")
-    public void compareName() {
+    @Test (description = "Get and compare the user data.",
+            groups = {"suite"})
+    public void compareUserName() {
         given().get(usersURL + "/" + userID)
         .then().statusCode(200)
                 .body("data.id", equalTo(userID))
@@ -86,22 +86,23 @@ public class TestRequests {
                 .log().body();
     }
 
-    @Test (description = "Get the empty response and check the status.")
-    public void emptyResponse() {
+    @Test (description = "Get the empty response for not existing user and check the status.",
+            groups = {"suite"})
+    public void notExistUser() {
         given().get(usersURL + "/" + emptyUserID)
         .then().statusCode(404)
                 .body(equalTo("{}"))
                 .log().body();
     }
 
-    @Test (description = "Post the user data, check the createdAt parameter.")
+    @Test (description = "Post the user data, check the createdAt parameter.",
+            groups = {"suite"})
     public void createUser() {
-
 
         JSONObject request = new JSONObject();
         request.put("name", "morpheus");
         request.put("job", "leader");
-        System.out.println(request);
+//        System.out.println(request);
 
         given().body(request.toJSONString())
         .when().post(usersURL)
@@ -110,13 +111,14 @@ public class TestRequests {
         //todo check the createdAt
     }
 
-    @Test (description = "Patch the user data and check the updatedAt parameter.")
+    @Test (description = "Patch the user data and check the updatedAt parameter.",
+            groups = {"suite"})
     public void updateUser() {
 
         JSONObject request = new JSONObject();
         request.put("name", "morpheus");
         request.put("job", "zion resident");
-        System.out.println(request);
+//        System.out.println(request);
 
         given().body(request.toJSONString())
         .when().put(usersURL + "/" + userID)
@@ -125,7 +127,8 @@ public class TestRequests {
         //todo check the updatedAt
     }
 
-    @Test (description = "Delete the user.")
+    @Test (description = "Delete the user.",
+            groups = {"suite"})
     public void deleteUser() {
         JSONObject request = new JSONObject();
 
