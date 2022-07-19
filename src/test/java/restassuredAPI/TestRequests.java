@@ -1,21 +1,19 @@
-package test.java.restassuredAPI;
+package restassuredAPI;
 
 import com.google.gson.Gson;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import java.text.SimpleDateFormat;
+
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
 
 public class TestRequests {
-//    Logger logger = LogManager.getRootLogger();
+
     String usersURL = "https://reqres.in/api/users";
     String queryURL = "?page=1";
     int expectedPage = 1;
@@ -27,22 +25,18 @@ public class TestRequests {
     String expectedLastName = "Weaver";
     int emptyUserID = 23;
 
-    class UsersPage {
+    static class UsersPage {
         public int page;
         public int per_page;
         public int total;
         public int total_pages;
     }
 
-    class Person {
+    static class Person {
         public int id;
-//        public String email;
         public String first_name;
         public String last_name;
-//        public String avatar;
         public List<Person> data;
-//        public SimpleDateFormat createdAt;
-//        public SimpleDateFormat updatedAt;
     }
 
     @Test (description = "Get the values of page, per_page, total, total_pages, users data.")
@@ -78,7 +72,7 @@ public class TestRequests {
                 .body("per_page", equalTo(expectedPer_page))
                 .body("total", equalTo(expectedTotal))
                 .body("total_pages", equalTo(expectedTotalPages))
-                .body("data.id[1]", equalTo(userID))
+                .body("data.id[1]", equalTo(userID)) //todo in data.id[1] replace [1] with variable
                 .log().body();
     }
 
@@ -103,6 +97,7 @@ public class TestRequests {
     @Test (description = "Post the user data, check the createdAt parameter.")
     public void createUser() {
 
+
         JSONObject request = new JSONObject();
         request.put("name", "morpheus");
         request.put("job", "leader");
@@ -110,7 +105,9 @@ public class TestRequests {
 
         given().body(request.toJSONString())
         .when().post(usersURL)
-        .then().statusCode(201).log().body();
+        .then().statusCode(201)
+                .log().body();
+        //todo check the createdAt
     }
 
     @Test (description = "Patch the user data and check the updatedAt parameter.")
@@ -123,7 +120,9 @@ public class TestRequests {
 
         given().body(request.toJSONString())
         .when().put(usersURL + "/" + userID)
-        .then().statusCode(200).log().body();
+        .then().statusCode(200)
+                .log().body();
+        //todo check the updatedAt
     }
 
     @Test (description = "Delete the user.")
@@ -132,7 +131,9 @@ public class TestRequests {
 
         given().body(request.toJSONString())
         .when().delete(usersURL + "/" + userID)
-        .then().statusCode(204).log().body();
+        .then().statusCode(204)
+                .body(equalTo(""))
+                .log().body();
     }
 
 }
