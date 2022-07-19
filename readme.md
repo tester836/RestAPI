@@ -1,7 +1,7 @@
 to run tests
 >mvn test
 
-![img.png](src/test/resources/img.png)
+![4 threads.png](src/test/resources/4threads.png)
 
 Задание для автоматизатора тестирования:
 
@@ -9,7 +9,7 @@ to run tests
 
 •   WIP- отчетность allure;
 
-•	WIP- тесты должны запускаться параллельно;
+•	тесты должны запускаться параллельно;
 
 •	разработать автотесты для проверки API https://reqres.in/
 
