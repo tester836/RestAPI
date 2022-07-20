@@ -1,4 +1,4 @@
-<suite name="TestSuite" parallel="tests" thread-count="4" >
+<suite name="TestSuite" parallel="tests" thread-count="3" >
     <test name ="test1">
         <classes>
             <class name="test.java.restassuredAPI.TestSuite">
