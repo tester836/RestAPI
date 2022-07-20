@@ -4,7 +4,10 @@ to run tests
 generate allure report
 > mvn allure:report
 
-![4 threads.png](src/test/resources/4threads.png)
+allure report from cli
+> allure serve target/surefire-reports/
+
+![img.png](src/test/resources/img.png)
 
 Задание для автоматизатора тестирования:
 
