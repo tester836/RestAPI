@@ -92,7 +92,7 @@ public class TestSuite {
     public void createUser() {
 
         JSONObject request = new JSONObject();
-        request.put("name", "morpheus")
+        request.put("name", "morpheus");
         request.put("job", "leader");
 //        System.out.println(request);
 
