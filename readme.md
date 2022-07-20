@@ -1,15 +1,13 @@
 to run tests
 >mvn clean test
 
-generate allure report
+WIP generate allure report
 > mvn allure:report
 
 allure report from cli
-> allure serve allure-results/
+> allure serve allure-results
 
-[Allure report](allure-report/index.html)
-
-![img.png](src/test/resources/img.png)
+![img_1.png](src/test/resources/allure_cli_6threads.png)
 
 Задание для автоматизатора тестирования:
 

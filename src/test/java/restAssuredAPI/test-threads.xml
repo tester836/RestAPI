@@ -1,5 +1,5 @@
-<suite name="TestSuite" parallel="tests" thread-count="3" >
-    <test name ="test1">
+<suite name="TestSuite" parallel="tests" thread-count="6" >
+    <test name ="pageData">
         <classes>
             <class name="test.java.restAssuredAPI.TestSuite">
                 <methods>
@@ -9,7 +9,7 @@
         </classes>
     </test>
 
-    <test name ="test2">
+    <test name ="compareUserName">
         <classes>
             <class name="test.java.restAssuredAPI.TestSuite">
                 <methods>
@@ -19,7 +19,7 @@
         </classes>
     </test>
 
-    <test name ="test3">
+    <test name ="notExistUser">
         <classes>
             <class name="test.java.restAssuredAPI.TestSuite">
                 <methods>
@@ -29,7 +29,7 @@
         </classes>
     </test>
 
-    <test name ="test4">
+    <test name ="createUser">
         <classes>
             <class name="test.java.restAssuredAPI.TestSuite">
                 <methods>
@@ -39,7 +39,7 @@
         </classes>
     </test>
 
-    <test name ="test5">
+    <test name ="updateUser">
         <classes>
             <class name="test.java.restAssuredAPI.TestSuite">
                 <methods>
@@ -49,7 +49,7 @@
         </classes>
     </test>
 
-    <test name ="test6">
+    <test name ="deleteUser">
         <classes>
             <class name="test.java.restAssuredAPI.TestSuite">
                 <methods>
