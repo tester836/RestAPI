@@ -1,10 +1,6 @@
-package test.java.restassuredAPI;
+package test.java.restAssuredAPI;
 
-import com.google.gson.Gson;
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
 import org.json.simple.JSONObject;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -38,8 +34,7 @@ public class TestSuite {
         public List<Person> data;
     }
 
-    @Test (description = "Get the values of page, per_page, total, total_pages, users data.",
-            groups = {"suite"})
+    @Test (description = "Get the values of page, per_page, total, total_pages, users data.")
     public void pageData() {
 
 //        Gson g = new Gson();
@@ -75,8 +70,7 @@ public class TestSuite {
                 .log().body();
     }
 
-    @Test (description = "Get and compare the user data.",
-            groups = {"suite"})
+    @Test (description = "Get and compare the user data.")
     public void compareUserName() {
         given().get(usersURL + "/" + userID)
         .then().statusCode(200)
@@ -86,8 +80,7 @@ public class TestSuite {
                 .log().body();
     }
 
-    @Test (description = "Get the empty response for not existing user and check the status.",
-            groups = {"suite"})
+    @Test (description = "Get the empty response for not existing user and check the status.")
     public void notExistUser() {
         given().get(usersURL + "/" + emptyUserID)
         .then().statusCode(404)
@@ -95,12 +88,11 @@ public class TestSuite {
                 .log().body();
     }
 
-    @Test (description = "Post the user data, check the createdAt parameter.",
-            groups = {"suite"})
+    @Test (description = "Post the user data, check the createdAt parameter.")
     public void createUser() {
 
         JSONObject request = new JSONObject();
-        request.put("name", "morpheus");
+        request.put("name", "morpheus")
         request.put("job", "leader");
 //        System.out.println(request);
 
@@ -111,8 +103,7 @@ public class TestSuite {
         //todo check the createdAt
     }
 
-    @Test (description = "Patch the user data and check the updatedAt parameter.",
-            groups = {"suite"})
+    @Test (description = "Patch the user data and check the updatedAt parameter.")
     public void updateUser() {
 
         JSONObject request = new JSONObject();
@@ -127,8 +118,7 @@ public class TestSuite {
         //todo check the updatedAt
     }
 
-    @Test (description = "Delete the user.",
-            groups = {"suite"})
+    @Test (description = "Delete the user.")
     public void deleteUser() {
         JSONObject request = new JSONObject();
 
