@@ -1,13 +1,14 @@
 to run tests
->mvn test
+>mvn clean test
+
+generate allure report
+> mvn allure:report
 
 ![4 threads.png](src/test/resources/4threads.png)
 
 Задание для автоматизатора тестирования:
 
-•	стек: Java8+, любой тестовый фреймворк,
-
-•   WIP- отчетность allure;
+•	стек: Java8+, любой тестовый фреймворк, отчетность allure;
 
 •	тесты должны запускаться параллельно;
 
