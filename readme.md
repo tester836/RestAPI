@@ -5,7 +5,9 @@ generate allure report
 > mvn allure:report
 
 allure report from cli
-> allure serve target/surefire-reports/
+> allure serve allure-results/
+
+[Allure report](allure-report/index.html)
 
 ![img.png](src/test/resources/img.png)
 
