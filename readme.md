@@ -1,11 +1,11 @@
 to run tests
 >mvn clean test
 
-WIP generate allure report
-> mvn allure:report
+generate allure report
+> mvn allure:serve
 
-allure report from cli
-> allure serve allure-results
+generate allure report from cli
+> allure serve {path_to_project}/target/surefire-reports/
 
 ![img_1.png](src/test/resources/allure_cli_6threads.png)
 
