@@ -95,8 +95,8 @@
                 <artifactId>allure-maven</artifactId>
                 <version>2.11.2</version>
                 <configuration>
-                    <resultsDirectory>${basedir}/target/surefire-reports</resultsDirectory>
-                    <reportDirectory>${basedir}/target/allure-report</reportDirectory>
+                    <resultsDirectory>${basedir}/allure-results</resultsDirectory>
+                    <reportDirectory>${basedir}/allure-report</reportDirectory>
                     <reportVersion>2.14.0</reportVersion>
                 </configuration>
             </plugin>
