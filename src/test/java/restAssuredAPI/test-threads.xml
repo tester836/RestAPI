@@ -1,0 +1,65 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TestSuite" parallel="tests" thread-count="6"> <!-- -->
+<!--    <listeners>-->
+<!--        <listener class-name="ru.testit.listener.BaseTestNgListener"/>-->
+<!--    </listeners>-->
+    <test name ="pageData">
+        <classes>
+            <class name="test.java.restAssuredAPI.TestSuite">
+                <methods>
+                <include name="pageData"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name ="compareUserName">
+        <classes>
+            <class name="test.java.restAssuredAPI.TestSuite">
+                <methods>
+                    <include name="compareUserName"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name ="notExistUser">
+        <classes>
+            <class name="test.java.restAssuredAPI.TestSuite">
+                <methods>
+                    <include name="notExistUser"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name ="createUser">
+        <classes>
+            <class name="test.java.restAssuredAPI.TestSuite">
+                <methods>
+                    <include name="createUser"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name ="updateUser">
+        <classes>
+            <class name="test.java.restAssuredAPI.TestSuite">
+                <methods>
+                    <include name="updateUser"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name ="deleteUser">
+        <classes>
+            <class name="test.java.restAssuredAPI.TestSuite">
+                <methods>
+                    <include name="deleteUser"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+ </suite>
